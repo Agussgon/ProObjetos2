@@ -35,19 +35,12 @@ public class BDCliente {
                     insertarRegistro.setString(2, "Juan");
                     insertarRegistro.setString(3, "Perez");
                     insertarRegistro.execute();
-                } catch (SQLException e) {
-                }
 
-                try {
 
                     insertarRegistro.setInt(1, 1);
                     insertarRegistro.setString(2, "Juana");
                     insertarRegistro.setString(3, "Perez");
                     insertarRegistro.execute();
-                } catch (SQLException e) {
-                }
-
-                try {
 
                     insertarRegistro.setInt(1, 2);
                     insertarRegistro.setString(2, "Juana");
@@ -58,27 +51,39 @@ public class BDCliente {
 
 
 
-                Integer IDInexistente= 3;
+                Integer ID= 3;
 
               try{  String eliminarCliente = " DELETE FROM CLIENTES WHERE ID=?";
                 PreparedStatement eliminar=con.prepareStatement(eliminarCliente);
-                eliminar.setInt(1,IDInexistente);
-                eliminar.execute();
-                log.info("Cliente con ID " + IDInexistente + " eliminado correctamente.");
+                eliminar.setInt(1,ID);
+                eliminar.executeUpdate();// retorna verdadero si es un conjunto de resultados y falso si es la cantidad de filas afectadas
+
+               if(eliminar.executeUpdate() > 0 ){
+                log.info("Cliente con ID " + ID + " eliminado correctamente.");}
+               else{
+                   log.info("Cliente con ID " + ID + " no pudo eliminarse.");
+               }
               }
               catch (SQLException e){
                   e.printStackTrace();
-                  log.error("Error al intentar eliminar el cliente con ID "+ IDInexistente);
+                  log.error("Error al intentar eliminar el cliente con ID "+ ID);
               }
 
 
               try{
 
+                  String apellido= "Pere";
                   String modificarUsuario= "UPDATE CLIENTES SET NOMBRE=? WHERE APELLIDO=?; ";
                   PreparedStatement modificar= con.prepareStatement(modificarUsuario) ;
                   modificar.setString(1,"Florencia");
-                  modificar.setString(2,"Pere");
-                  modificar.executeUpdate(); // nos retorna las filas afectadas
+                  modificar.setString(2,apellido);
+                  Integer filasAfectadas= modificar.executeUpdate(); // nos retorna las filas afectadas
+
+                  if (filasAfectadas <= 0){
+                    log.error("no existen filas con el apellido "+ apellido );
+
+                  }
+
                   // como implemento el debug
               }catch (SQLException e){
                   e.printStackTrace();

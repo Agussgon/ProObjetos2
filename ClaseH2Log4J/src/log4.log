@@ -1,1 +1,9 @@
 
+
+21:40:57.404 [main] INFO  - Cliente con ID 3 eliminado correctamente.
+21:40:57.408 [main] ERROR - no existen filas con el apellido Pere
+21:44:04.284 [main] INFO  - Cliente con ID 3 eliminado correctamente.
+21:44:04.288 [main] ERROR - no existen filas con el apellido Pere
+21:52:07.901 [main] ERROR - no existen filas con el apellido Pere
+21:56:26.148 [main] INFO  - Cliente con ID 3 no pudo eliminarse.
+21:56:26.153 [main] ERROR - no existen filas con el apellido Pere

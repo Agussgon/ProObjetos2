@@ -13,11 +13,18 @@ public class Cliente {
     private Long id;
     private String nombre;
 
+
     public Cliente(Long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
+    // constructor para bd
+
+
+    public Cliente(String nombre) {
+        this.nombre = nombre;
+    }
 
     public Long getId() {
         return id;
