@@ -19,12 +19,12 @@
 
     <Loggers>
        <!---->
-        <Logger name="prueba" level="info" additivity="true"> <!-- si additivity es verdadera guarda
+        <Logger name="BD" level="info" additivity="true"> <!-- si additivity es verdadera guarda
         todos los logs a partir de este nivel en el archivo root osea file -->
             <AppenderRef ref="Console"/>
         </Logger>
 
-        <Root level="info">
+        <Root level="warn">
             <AppenderRef ref="File"/>
         </Root>
     </Loggers>
